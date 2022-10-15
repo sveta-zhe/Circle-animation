@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #0b173b;
+}
+
+.parent {
+  display: flex;
+  width: 400px;
+}
+
+.child-container {
+  display: flex;
+  width: 180px;
+  height: 180px;
+}
+
+.child-container+.child-container {
+  margin-left: 50px;
+}
+
+.child-container-one {
+  align-items: flex-start;
+  justify-content: end;
+}
+
+.child-container-two {
+  align-items: flex-end;
+}
+
+.child {
+  border-radius: 50%;
+}
+
+.child-one {
+  width: 60px;
+  height: 60px;
+  background-color: #62f762;
+  animation-name: circle-to-circle;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out;
+}
+
+.child-two {
+  width: 180px;
+  height: 180px;
+  background-color: #4c7bfc;
+  animation-name: circle-to-circle;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in;
+  animation-delay: -2s;
+}
+
+@keyframes circle-to-circle {
+  from {
+    width: 60px;
+    height: 60px;
+    background-color: #edff4b;
+  }
+
+  50% {
+    width: 60px;
+    height: 180px;
+    background-color: #9785ff;
+  }
+
+  to {
+    width: 180px;
+    height: 180px;
+    background-color: #3cff66;
+  }
+}
+
+@media (max-width: 768px) {
+  .parent {
+    flex-direction: column;
+    width: 200px;
+  }
+
+  .child-container+.child-container {
+    margin-left: initial;
+    margin-top: 20px;
+  }
+}
+
